@@ -98,15 +98,24 @@ def init_db():
     
     defaults = {
         "paytm_upi_id": "paytmqr5l66pa@ptys",
-        "paytm_business_name": "Insta Editor 360",
+        "paytm_business_name": "SURENDRA SINGH",
+        "upi_number": "9956607278",
+        "admin_email": "vyrox954@gmail.com",
+        "admin_password": "Surendra@360",
+        "smtp_user": "vyrox954@gmail.com",
+        "smtp_pass": "rkatzejwwyhoocjp",
+        "price_inr": "1000",
+        "public_tunnel_url": "https://insta-editor-360.onrender.com",
         "paytm_mid": "",
         "paytm_mkey": "",
-        "admin_email": "vyrox954@gmail.com",
-        "price_inr": "1000",
         "apify_token": ""
     }
     for k, v in defaults.items():
-        cur.execute("INSERT OR IGNORE INTO app_settings (key, value) VALUES (?, ?)", (k, v))
+        cur.execute("INSERT OR REPLACE INTO app_settings (key, value) VALUES (?, ?)", (k, v))
+        
+    # Ensure Master Lifetime Key is always active
+    master_kh = hashlib.sha256("I360-SURENDRA-LIFETIME-2026".encode("utf-8")).hexdigest()
+    cur.execute("INSERT OR REPLACE INTO access_keys (id, key_hash, label, plan, status, max_devices) VALUES ('master', ?, 'Master Lifetime Key', 'lifetime', 'active', 10)", (master_kh,))
         
     conn.commit()
     conn.close()
