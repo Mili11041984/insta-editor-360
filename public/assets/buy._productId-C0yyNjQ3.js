@@ -1,0 +1,1 @@
+import{j as t,B as n,L as o}from"./index-B46R6SbF.js";const a=()=>t.jsxs("main",{className:"mx-auto max-w-lg px-5 py-16 text-center",children:[t.jsx("p",{className:"font-medium",children:"This PDF is not available."}),t.jsx(n,{asChild:!0,variant:"outline",className:"mt-4",children:t.jsx(o,{to:"/",children:"Back to home"})})]});export{a as notFoundComponent};
