@@ -235,7 +235,7 @@ def send_approved_key_to_customer(customer_email, plain_key, plan="Lifetime Acce
         <div style="background:#022c22;border:2px solid #059669;border-radius:14px;padding:18px;margin:20px 0;">
             <div style="font-size:12px;color:#6ee7b7;font-weight:bold;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px;">Your Personal Access Key</div>
             <div style="font-family:monospace;font-size:22px;color:#34d399;font-weight:bold;letter-spacing:1px;user-select:all;background:#064e3b;padding:8px 12px;border-radius:6px;display:inline-block;">{plain_key}</div>
-            <div style="font-size:13px;color:#a7f3d0;margin-top:8px;">Plan: <strong>{plan}</strong> · 2 Devices Allowed</div>
+            <div style="font-size:13px;color:#a7f3d0;margin-top:8px;">Plan: <strong>{plan}</strong> · 1 Device Allowed</div>
         </div>
 
         <div style="text-align:left;background:#27272a;border-radius:12px;padding:16px;margin-bottom:24px;font-size:14px;color:#d4d4d8;line-height:1.6;">
@@ -1270,7 +1270,7 @@ class InstaRequestHandler(http.server.BaseHTTPRequestHandler):
             return self.serve_admin_panel()
 
         # Dedicated Paytm Checkout Page
-        if path in ["/pay", "/paytm", "/checkout-paytm"]:
+        if path in ["/pay", "/paytm", "/checkout-paytm", "/checkout"]:
             return self.serve_paytm_checkout(query)
 
         # Telemetry / Analytics stub
@@ -1975,10 +1975,7 @@ class InstaRequestHandler(http.server.BaseHTTPRequestHandler):
                 <span>Name: <strong style="color:#fff;">{biz_name}</strong></span>
                 <span style="color:#10b981;font-size:11px;">✓ Verified</span>
             </div>
-            <div class="upi-row">
-                <span>UPI Number: <strong id="upiNumText" style="color:#38bdf8;">{upi_num}</strong></span>
-                <button type="button" class="copy-btn" onclick="copyText('{upi_num}', this)">Copy No</button>
-            </div>
+
             <div class="upi-row">
                 <span>UPI ID: <strong id="upiIdText" style="color:#34d399;">{paytm_vpa}</strong></span>
                 <button type="button" class="copy-btn" onclick="copyText('{paytm_vpa}', this)">Copy UPI</button>
@@ -2358,8 +2355,8 @@ class InstaRequestHandler(http.server.BaseHTTPRequestHandler):
                     <option value="agency">Agency Plan</option>
                 </select>
                 <select id="kDevices">
-                    <option value="1">1 Device Lock</option>
-                    <option value="2" selected>2 Devices</option>
+                    <option value="1" selected>1 Device Lock</option>
+                    <option value="2">2 Devices</option>
                     <option value="5">5 Devices</option>
                     <option value="10">10 Devices</option>
                 </select>

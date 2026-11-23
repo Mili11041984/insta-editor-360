@@ -8,7 +8,7 @@ const f={
     "Insta Editor 360 Social Growth Platform",
     "Post & reel analytics & insights",
     "AI content assistant & editor",
-    "2 devices activation · Lifetime access"
+    "1 device activation · Lifetime access"
   ]
 };
 
@@ -48,10 +48,15 @@ function y(){
             ]
           },i))
         }),
-        e.jsx(r,{
-          asChild:!0,
-          className:"mt-8 w-full rounded-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold shadow-md h-11 text-sm",
-          children:e.jsx(l,{to:"/pay",children:"Get Insta Editor 360"})
+        e.jsx("button",{
+          type:"button",
+          onClick:(a)=>{
+            a.preventDefault();
+            a.stopPropagation();
+            window.location.href="/pay";
+          },
+          className:"mt-8 w-full rounded-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold shadow-md h-11 text-sm flex items-center justify-center cursor-pointer border-none",
+          children:"Get Insta Editor 360"
         }),
         e.jsx(r,{
           asChild:!0,
