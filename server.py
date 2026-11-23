@@ -2010,7 +2010,7 @@ class InstaRequestHandler(http.server.BaseHTTPRequestHandler):
 
         <p class="footer-text">
             Official Support: <a href="mailto:{admin_email}" style="color:#38bdf8;text-decoration:none;">{admin_email}</a><br>
-            Paytm Business UPI: {paytm_vpa} · UPI No: {upi_num}
+            Paytm Business UPI: {paytm_vpa}
         </p>
     </div>
 
