@@ -186,7 +186,7 @@ def send_email_async(to_addr, subject, html_body, text_body=None):
 
 def send_key_request_notification_to_admin(requester_email, client_ip):
     admin_email = get_setting("admin_email", "vyrox954@gmail.com")
-    tunnel_url = get_setting("public_tunnel_url", "https://electoral-and-gold-naturals.trycloudflare.com").rstrip("/")
+    tunnel_url = os.environ.get("RENDER_EXTERNAL_URL", get_setting("public_tunnel_url", "https://insta-editor-360.onrender.com")).rstrip("/")
     subject = f"🚨 New Key Request from {requester_email} — Insta Editor 360"
     html = f"""<!DOCTYPE html>
 <html>
@@ -213,7 +213,7 @@ def send_key_request_notification_to_admin(requester_email, client_ip):
     send_email_async(admin_email, subject, html)
 
 def send_approved_key_to_customer(customer_email, plain_key, plan="Lifetime Access"):
-    tunnel_url = get_setting("public_tunnel_url", "https://electoral-and-gold-naturals.trycloudflare.com").rstrip("/")
+    tunnel_url = os.environ.get("RENDER_EXTERNAL_URL", get_setting("public_tunnel_url", "https://insta-editor-360.onrender.com")).rstrip("/")
     subject = "🎉 Your Insta Editor 360 Lifetime Access Key is Ready!"
     html = f"""<!DOCTYPE html>
 <html>
